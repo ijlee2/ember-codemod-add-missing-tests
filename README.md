@@ -5,7 +5,31 @@
 _Codemod to add missing tests_
 
 
+## Why use it?
+
+Large projects without tests are hard to maintain and extend. Run this codemod to find untested code and create default tests.
+
+The codemod:
+
+- Supports 10 entities in Ember and Ember Data
+- Accounts for TypeScript, `<template>` tag, and route splitting
+- Blazingly fast compared to Ember CLI
+
+
 ## Usage
+
+Step 1. Quickly migrate.
+
+```sh
+cd <path/to/your/project>
+npx ember-codemod-add-missing-tests <arguments>
+```
+
+Step 2. Review the package.
+
+- [x] Fix format and lint errors.
+- [x] Run the new integration and unit tests. Update assertions or skip tests as needed.
+
 
 ### Arguments
 
