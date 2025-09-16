@@ -4,18 +4,18 @@ type FileExtension = '.gjs' | '.gts' | '.js' | '.ts';
 
 export function getFileExtension({
   entityType,
-  isTemplateTag,
   isTypeScript,
+  projectHasTemplateTag,
 }: {
   entityType: EntityType;
-  isTemplateTag: boolean;
   isTypeScript: boolean;
+  projectHasTemplateTag: boolean;
 }): FileExtension {
   switch (entityType) {
     case 'components':
     case 'helpers':
     case 'modifiers': {
-      if (isTemplateTag) {
+      if (projectHasTemplateTag) {
         return isTypeScript ? '.gts' : '.gjs';
       }
 
