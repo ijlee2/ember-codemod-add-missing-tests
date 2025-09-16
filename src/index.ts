@@ -1,4 +1,8 @@
-import { createOptions, findEntitiesWithoutTest } from './steps/index.js';
+import {
+  createOptions,
+  createTests,
+  findEntitiesWithoutTest,
+} from './steps/index.js';
 import type { CodemodOptions } from './types/index.js';
 
 export function runCodemod(codemodOptions: CodemodOptions): void {
@@ -9,5 +13,5 @@ export function runCodemod(codemodOptions: CodemodOptions): void {
     return;
   }
 
-  console.log(entities);
+  createTests(entities, options);
 }
