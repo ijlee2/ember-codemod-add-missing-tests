@@ -1,5 +1,5 @@
 import type { CodemodOptions, Options } from '../types/index.js';
-import { hasTemplateTag } from './create-options/index.js';
+import { analyzeTestApp, hasTemplateTag } from './create-options/index.js';
 
 export function createOptions(codemodOptions: CodemodOptions): Options {
   const { componentStructure, projectRoot } = codemodOptions;
@@ -8,5 +8,6 @@ export function createOptions(codemodOptions: CodemodOptions): Options {
     componentStructure,
     projectHasTemplateTag: hasTemplateTag(projectRoot),
     projectRoot,
+    testApp: analyzeTestApp(codemodOptions),
   };
 }

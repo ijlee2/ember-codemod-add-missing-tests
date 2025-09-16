@@ -5,12 +5,19 @@ import type { ENTITY_TYPES } from '../utils/ember.js';
 type CodemodOptions = {
   componentStructure: 'flat' | 'nested';
   projectRoot: string;
+  testAppLocation: string | undefined;
 };
 
 type Options = {
   componentStructure: 'flat' | 'nested';
   projectHasTemplateTag: boolean;
   projectRoot: string;
+  testApp:
+    | {
+        location: string;
+        name: string;
+      }
+    | undefined;
 };
 
 type AllEntities = Record<EntityType, Entities>;
