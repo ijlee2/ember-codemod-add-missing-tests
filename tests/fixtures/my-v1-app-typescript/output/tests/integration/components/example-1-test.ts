@@ -2,21 +2,21 @@ import {
   render,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 import { module, skip } from 'qunit';
-import <%= data.entity.pascalizedName %> from '<%= data.packageName %>/components/<%= data.entity.name %>';
-import { setupRenderingTest } from '<%= data.testAppName %>/tests/helpers';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 
 interface TestContext extends BaseTestContext {}
 
-module('Integration | Component | <%= data.entity.name %>', function (hooks) {
+module('Integration | Component | example-1', function (hooks) {
   setupRenderingTest(hooks);
 
   skip('it renders', async function (this: TestContext, assert) {
     await render<TestContext>(
-      <template>
+      hbs`
         {{! @glint-expect-error }}
-        <<%= data.entity.pascalizedName %> />
-      </template>,
+        <Example1 />
+      `,
     );
 
     assert.dom().hasText('');

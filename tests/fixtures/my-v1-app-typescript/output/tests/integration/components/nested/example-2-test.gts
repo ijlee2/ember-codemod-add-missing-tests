@@ -3,19 +3,19 @@ import {
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
 import { module, skip } from 'qunit';
-import <%= data.entity.pascalizedName %> from '<%= data.packageName %>/components/<%= data.entity.name %>';
-import { setupRenderingTest } from '<%= data.testAppName %>/tests/helpers';
+import NestedExample2 from 'my-v1-app/components/nested/example-2';
+import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 
 interface TestContext extends BaseTestContext {}
 
-module('Integration | Component | <%= data.entity.name %>', function (hooks) {
+module('Integration | Component | nested/example-2', function (hooks) {
   setupRenderingTest(hooks);
 
   skip('it renders', async function (this: TestContext, assert) {
     await render<TestContext>(
       <template>
         {{! @glint-expect-error }}
-        <<%= data.entity.pascalizedName %> />
+        <NestedExample2 />
       </template>,
     );
 
