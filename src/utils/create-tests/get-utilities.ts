@@ -52,6 +52,11 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
           break;
         }
 
+        case 'ObjectExpression': {
+          utilities.default.push(camelize(data.entityName));
+          break;
+        }
+
         case 'TSDeclareFunction':
         case 'TSInterfaceDeclaration':
         case 'TSTypeAliasDeclaration': {
