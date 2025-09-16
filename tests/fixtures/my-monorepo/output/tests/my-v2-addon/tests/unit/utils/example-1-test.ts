@@ -5,7 +5,9 @@ import { setupTest } from 'test-app/tests/helpers';
 module('Unit | Utility | example-1', function (hooks) {
   setupTest(hooks);
 
-  test('MyUtility', function (assert) {
-    assert.ok(MyUtility);
+  module('MyUtility', function () {
+    test('it exists', function (assert) {
+      assert.ok(MyUtility);
+    });
   });
 });

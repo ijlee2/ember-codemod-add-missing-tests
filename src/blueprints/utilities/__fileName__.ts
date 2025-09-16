@@ -5,12 +5,16 @@ import { setupTest } from '<%= data.testAppName %>/tests/helpers';
 module('Unit | Utility | <%= data.entity.name %>', function (hooks) {
   setupTest(hooks);
 <% if (data.utilities.default.length > 0) {%>
-  test('<%= data.utilities.default[0] %>', function (assert) {
-    assert.ok(<%= data.utilities.default[0] %>);
+  module('<%= data.utilities.default[0] %>', function () {
+    test('it exists', function (assert) {
+      assert.ok(<%= data.utilities.default[0] %>);
+    });
   });<% if (data.utilities.named.length > 0) {%>
 <% } %><% } %><% data.utilities.named.forEach((name, index) => {%>
-  test('<%= name %>', function (assert) {
-    assert.ok(<%= name %>);
+  module('<%= name %>', function () {
+    test('it exists', function (assert) {
+      assert.ok(<%= name %>);
+    });
   });<% if (index < data.utilities.named.length - 1) {%>
 <% } %><% }); %>
 });

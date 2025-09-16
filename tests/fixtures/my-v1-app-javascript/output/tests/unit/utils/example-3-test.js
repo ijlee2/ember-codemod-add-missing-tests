@@ -5,19 +5,27 @@ import { setupTest } from 'my-v1-app/tests/helpers';
 module('Unit | Utility | example-3', function (hooks) {
   setupTest(hooks);
 
-  test('myFunction1', function (assert) {
-    assert.ok(myFunction1);
+  module('myFunction1', function () {
+    test('it exists', function (assert) {
+      assert.ok(myFunction1);
+    });
   });
 
-  test('myFunction2', function (assert) {
-    assert.ok(myFunction2);
+  module('myFunction2', function () {
+    test('it exists', function (assert) {
+      assert.ok(myFunction2);
+    });
   });
 
-  test('myFunction3', function (assert) {
-    assert.ok(myFunction3);
+  module('myFunction3', function () {
+    test('it exists', function (assert) {
+      assert.ok(myFunction3);
+    });
   });
 
-  test('MyUtility', function (assert) {
-    assert.ok(MyUtility);
+  module('MyUtility', function () {
+    test('it exists', function (assert) {
+      assert.ok(MyUtility);
+    });
   });
 });
