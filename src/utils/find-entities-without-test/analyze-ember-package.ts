@@ -38,10 +38,13 @@ export function analyzeEmberPackage({
   ENTITY_TYPES.forEach((entityType) => {
     const entityFolder = ENTITY_SOURCE_FOLDERS[entityType];
 
-    const filePaths = findFiles(`${source}/${entityFolder}/**/*.{hbs,js,ts}`, {
-      ignoreList: ['**/*.d.ts'],
-      projectRoot: packageRoot,
-    });
+    const filePaths = findFiles(
+      `${source}/${entityFolder}/**/*.{gjs,gts,hbs,js,ts}`,
+      {
+        ignoreList: ['**/*.d.ts'],
+        projectRoot: packageRoot,
+      },
+    );
 
     filePaths.forEach((filePath) => {
       const { dir, ext, name } = parseFilePath(filePath);
