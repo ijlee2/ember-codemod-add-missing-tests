@@ -72,7 +72,7 @@ export function analyzeEmberPackage({
       }
 
       entities[entityType].set(entityName, {
-        filePath: relative(source, filePathWithoutExtension),
+        filePath,
         isTemplateTag,
         isTypeScript,
         packageName,
