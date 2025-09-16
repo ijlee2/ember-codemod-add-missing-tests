@@ -64,7 +64,9 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         default: {
-          throw new Error(`Unknown type: ${declaration.type}`);
+          console.error(`ERROR: Unknown type: ${declaration.type}`);
+          console.log(file);
+          console.log();
         }
       }
 
@@ -124,8 +126,9 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
               }
 
               default: {
-                console.log(id);
-                throw new Error(`Unknown ID type: ${id.type}`);
+                console.log(`ERROR: Unknown ID type: ${id.type}`);
+                console.log(file);
+                console.log();
               }
             }
           });
@@ -134,7 +137,9 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         default: {
-          throw new Error(`Unknown type: ${declaration.type}`);
+          console.error(`ERROR: Unknown type: ${declaration.type}`);
+          console.log(file);
+          console.log();
         }
       }
 
