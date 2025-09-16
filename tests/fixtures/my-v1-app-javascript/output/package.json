@@ -2,6 +2,7 @@
   "name": "my-v1-app",
   "version": "0.0.0",
   "devDependencies": {
-    "ember-source": "~6.4.0"
+    "ember-source": "~6.0.0",
+    "ember-template-imports": "^4.3.0"
   }
 }

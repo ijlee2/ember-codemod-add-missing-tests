@@ -7,6 +7,7 @@ const codemodOptions: CodemodOptions = {
 
 const options: Options = {
   componentStructure: 'flat',
+  projectHasTemplateTag: true,
   projectRoot: 'tmp/my-v1-app-javascript',
 };
 
