@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [#7](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/7) Supported creating tests in test-app ([@ijlee2](https://github.com/ijlee2))
+- [#8](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/8) Supported more export types in getUtilities() ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.3.0
 
 ### Minor Changes
