@@ -21,11 +21,20 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Where to run the codemod',
     type: 'string',
   })
+  .option('test-app-location', {
+    describe: 'Location of the test-app package',
+    type: 'string',
+  })
   .parseSync();
+
+function castEmptyStringToUndefined(value?: string): string | undefined {
+  return value === '' ? undefined : value;
+}
 
 const codemodOptions: CodemodOptions = {
   componentStructure: argv['component-structure'] ?? 'flat',
   projectRoot: argv['root'] ?? process.cwd(),
+  testAppLocation: castEmptyStringToUndefined(argv['test-app-location']),
 };
 
 runCodemod(codemodOptions);

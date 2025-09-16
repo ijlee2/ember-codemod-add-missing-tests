@@ -5,6 +5,7 @@ import type { ENTITY_TYPES } from '../utils/ember.js';
 type CodemodOptions = {
   componentStructure: 'flat' | 'nested';
   projectRoot: string;
+  testAppLocation: string | undefined;
 };
 
 type Options = {
