@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- [#6](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/6) Checked if `<template>` tag can be used ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.2.0
 
 ### Minor Changes
