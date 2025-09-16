@@ -1,0 +1,84 @@
+import { join, relative } from 'node:path';
+
+import { findFiles, parseFilePath } from '@codemod-utils/files';
+
+import type { AllEntities, PackageType } from '../../types/index.js';
+import {
+  ENTITY_SOURCE_FOLDERS,
+  ENTITY_TYPES,
+  SOURCE_FOR_INTERNAL_PACKAGES,
+} from '../ember.js';
+
+export function analyzeEmberPackage({
+  componentStructure,
+  packageName,
+  packageRoot,
+  packageType,
+}: {
+  componentStructure: 'flat' | 'nested';
+  packageName: string;
+  packageRoot: string;
+  packageType: PackageType;
+}): AllEntities {
+  const source = SOURCE_FOR_INTERNAL_PACKAGES[packageType];
+
+  const entities: AllEntities = {
+    adapters: new Map(),
+    components: new Map(),
+    controllers: new Map(),
+    helpers: new Map(),
+    models: new Map(),
+    modifiers: new Map(),
+    routes: new Map(),
+    serializers: new Map(),
+    services: new Map(),
+    utilities: new Map(),
+  };
+
+  ENTITY_TYPES.forEach((entityType) => {
+    const entityFolder = ENTITY_SOURCE_FOLDERS[entityType];
+
+    const filePaths = findFiles(`${source}/${entityFolder}/**/*.{hbs,js,ts}`, {
+      ignoreList: ['**/*.d.ts'],
+      projectRoot: packageRoot,
+    });
+
+    filePaths.forEach((filePath) => {
+      const { dir, ext, name } = parseFilePath(filePath);
+
+      const filePathWithoutExtension = join(dir, name);
+      let entityName = relative(
+        join(source, entityFolder),
+        filePathWithoutExtension,
+      );
+
+      if (entityType === 'components' && componentStructure === 'nested') {
+        entityName = entityName.replace(/\/index$/, '');
+      }
+
+      const isTemplateTag = ext === '.gjs' || ext === '.gts';
+      const isTypeScript = ext === '.gts' || ext === '.ts';
+
+      if (entityType === 'components' && entities[entityType].has(entityName)) {
+        const entityData = entities[entityType].get(entityName)!;
+
+        entities[entityType].set(entityName, {
+          ...entityData,
+          isTemplateTag: entityData.isTemplateTag || isTemplateTag,
+          isTypeScript: entityData.isTypeScript || isTypeScript,
+        });
+
+        return;
+      }
+
+      entities[entityType].set(entityName, {
+        filePath: relative(source, filePathWithoutExtension),
+        isTemplateTag,
+        isTypeScript,
+        packageName,
+      });
+    });
+  });
+
+  return entities;
+}
