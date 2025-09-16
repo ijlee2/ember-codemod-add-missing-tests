@@ -11,7 +11,7 @@ import { getFileExtension, getUtilities } from '../utils/create-tests/index.js';
 import { ENTITY_TEST_FOLDERS, ENTITY_TYPES } from '../utils/ember.js';
 
 export function createTests(allEntities: AllEntities, options: Options): void {
-  const { projectHasTemplateTag, projectRoot } = options;
+  const { projectHasTemplateTag, projectRoot, testApp } = options;
 
   ENTITY_TYPES.forEach((entityType) => {
     const entityFolder = ENTITY_TEST_FOLDERS[entityType];
@@ -65,7 +65,7 @@ export function createTests(allEntities: AllEntities, options: Options): void {
             pascalizedName: pascalize(entityName),
           },
           packageName,
-          testAppName: packageName,
+          testAppName: testApp?.name ?? packageName,
           utilities,
         },
       });
@@ -74,7 +74,7 @@ export function createTests(allEntities: AllEntities, options: Options): void {
     }
 
     createFiles(fileMap, {
-      projectRoot,
+      projectRoot: testApp?.location ?? projectRoot,
     });
   });
 }

@@ -12,6 +12,12 @@ type Options = {
   componentStructure: 'flat' | 'nested';
   projectHasTemplateTag: boolean;
   projectRoot: string;
+  testApp:
+    | {
+        location: string;
+        name: string;
+      }
+    | undefined;
 };
 
 type AllEntities = Record<EntityType, Entities>;
