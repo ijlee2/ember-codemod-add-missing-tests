@@ -3,7 +3,7 @@ import {
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
 import { module, skip } from 'qunit';
-import <%= data.entity.pascalizedName %> from '<%= data.packageName %>/helpers/<%= data.entity.name %>';
+import <%= data.entity.pascalizedName %> from '<%= data.packageName %>/components/<%= data.entity.name %>';
 import { setupRenderingTest } from '<%= data.testAppName %>/tests/helpers';
 
 interface TestContext extends BaseTestContext {}
