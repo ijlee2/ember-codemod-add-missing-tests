@@ -52,6 +52,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
           break;
         }
 
+        case 'TSDeclareFunction':
         case 'TSInterfaceDeclaration':
         case 'TSTypeAliasDeclaration': {
           break;
@@ -94,6 +95,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
           break;
         }
 
+        case 'TSDeclareFunction':
         case 'TSInterfaceDeclaration':
         case 'TSTypeAliasDeclaration': {
           break;
