@@ -1,4 +1,7 @@
 {
   "name": "my-v1-app",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "ember-source": "~6.4.0"
+  }
 }
