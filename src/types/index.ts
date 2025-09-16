@@ -9,6 +9,7 @@ type CodemodOptions = {
 
 type Options = {
   componentStructure: 'flat' | 'nested';
+  projectHasTemplateTag: boolean;
   projectRoot: string;
 };
 
