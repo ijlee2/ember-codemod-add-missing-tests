@@ -1,18 +1,19 @@
 import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { module, skip } from 'qunit';
+import example1 from 'my-v1-app/helpers/example-1';
 import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 
-module('Integration | Component | nested/example-1', function (hooks) {
+module('Integration | Helper | example-1', function (hooks) {
   setupRenderingTest(hooks);
 
   skip('it renders', async function (assert) {
     await render(
-      hbs`
-        <Nested::Example1 />
-      `,
+      <template>
+        {{! @glint-expect-error }}
+        {{example1 "1234"}}
+      </template>,
     );
 
-    assert.dom().hasText('');
+    assert.dom().hasText('1234');
   });
 });

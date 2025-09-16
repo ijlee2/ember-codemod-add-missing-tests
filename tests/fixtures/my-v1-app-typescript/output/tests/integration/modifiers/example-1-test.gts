@@ -4,6 +4,7 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { module, skip } from 'qunit';
+import example1 from 'my-v1-app/modifiers/example-1';
 import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 
 interface TestContext extends BaseTestContext {}
@@ -15,7 +16,7 @@ module('Integration | Modifier | example-1', function (hooks) {
     await render<TestContext>(
       hbs`
         {{! @glint-expect-error }}
-        <div {{example-1}}></div>
+        <div {{example1}}></div>
       `,
     );
 

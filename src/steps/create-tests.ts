@@ -11,7 +11,7 @@ import { getFileExtension, getUtilities } from '../utils/create-tests/index.js';
 import { ENTITY_TEST_FOLDERS, ENTITY_TYPES } from '../utils/ember.js';
 
 export function createTests(allEntities: AllEntities, options: Options): void {
-  const { projectRoot } = options;
+  const { projectHasTemplateTag, projectRoot } = options;
 
   ENTITY_TYPES.forEach((entityType) => {
     const entityFolder = ENTITY_TEST_FOLDERS[entityType];
@@ -19,12 +19,12 @@ export function createTests(allEntities: AllEntities, options: Options): void {
     const fileMap = new Map<string, string>();
 
     for (const [entityName, entityData] of allEntities[entityType]) {
-      const { filePath, isTemplateTag, isTypeScript, packageName } = entityData;
+      const { filePath, isTypeScript, packageName } = entityData;
 
       const fileExtension = getFileExtension({
         entityType,
-        isTemplateTag,
         isTypeScript,
+        projectHasTemplateTag,
       });
 
       const blueprintFilePath = join(

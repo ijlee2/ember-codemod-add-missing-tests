@@ -2,21 +2,21 @@ import {
   render,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { module, skip } from 'qunit';
+import Example4 from 'my-v1-app/components/example-4';
 import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 
 interface TestContext extends BaseTestContext {}
 
-module('Integration | Component | nested/example-1', function (hooks) {
+module('Integration | Component | example-4', function (hooks) {
   setupRenderingTest(hooks);
 
   skip('it renders', async function (this: TestContext, assert) {
     await render<TestContext>(
-      hbs`
+      <template>
         {{! @glint-expect-error }}
-        <Nested::Example1 />
-      `,
+        <Example4 />
+      </template>,
     );
 
     assert.dom().hasText('');

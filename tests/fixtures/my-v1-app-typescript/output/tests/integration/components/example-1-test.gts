@@ -2,8 +2,8 @@ import {
   render,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { module, skip } from 'qunit';
+import Example1 from 'my-v1-app/components/example-1';
 import { setupRenderingTest } from 'my-v1-app/tests/helpers';
 
 interface TestContext extends BaseTestContext {}
@@ -13,10 +13,10 @@ module('Integration | Component | example-1', function (hooks) {
 
   skip('it renders', async function (this: TestContext, assert) {
     await render<TestContext>(
-      hbs`
+      <template>
         {{! @glint-expect-error }}
         <Example1 />
-      `,
+      </template>,
     );
 
     assert.dom().hasText('');
