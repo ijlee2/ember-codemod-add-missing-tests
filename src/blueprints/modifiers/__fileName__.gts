@@ -2,7 +2,6 @@ import {
   render,
   type TestContext as BaseTestContext,
 } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
 import { module, skip } from 'qunit';
 import <%= data.entity.camelizedName %> from '<%= data.packageName %>/modifiers/<%= data.entity.name %>';
 import { setupRenderingTest } from '<%= data.testAppName %>/tests/helpers';
@@ -14,10 +13,10 @@ module('Integration | Modifier | <%= data.entity.name %>', function (hooks) {
 
   skip('it renders', async function (this: TestContext, assert) {
     await render<TestContext>(
-      hbs`
+      <template>
         {{! @glint-expect-error }}
         <div {{<%= data.entity.camelizedName %>}}></div>
-      `,
+      </template>,
     );
 
     assert.ok(true);
