@@ -26,7 +26,6 @@ type Entities = Map<EntityName, EntityData>;
 
 type EntityData = {
   filePath: string;
-  isTemplateTag: boolean;
   isTypeScript: boolean;
   packageName: PackageName;
 };
