@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2
+
+### Patch Changes
+
+- [#12](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/12) Added `<template>` tag to modifier blueprints ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.5.1
 
 ### Patch Changes
