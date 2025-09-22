@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.3
+
+### Patch Changes
+
+- [#13](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/13) Fixed closing <template> tag ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.5.2
 
 ### Patch Changes
