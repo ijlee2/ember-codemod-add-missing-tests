@@ -10,7 +10,7 @@ module('Integration | Component | nested/example-2', function (hooks) {
     await render(
       <template>
         <NestedExample2 />
-      <template>,
+      </template>,
     );
 
     assert.dom().hasText('');
