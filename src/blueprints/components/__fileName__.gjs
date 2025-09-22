@@ -10,7 +10,7 @@ module('Integration | Component | <%= data.entity.name %>', function (hooks) {
     await render(
       <template>
         <<%= data.entity.pascalizedName %> />
-      <template>,
+      </template>,
     );
 
     assert.dom().hasText('');
