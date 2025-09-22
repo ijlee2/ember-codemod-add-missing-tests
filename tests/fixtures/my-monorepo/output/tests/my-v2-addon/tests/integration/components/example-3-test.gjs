@@ -10,7 +10,7 @@ module('Integration | Component | example-3', function (hooks) {
     await render(
       <template>
         <Example3 />
-      <template>,
+      </template>,
     );
 
     assert.dom().hasText('');
