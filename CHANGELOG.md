@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [#16](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/16) Marked package as stable ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#15](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/15) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 0.5.4
 
 ### Patch Changes
