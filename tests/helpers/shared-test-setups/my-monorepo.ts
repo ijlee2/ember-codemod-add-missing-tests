@@ -1,17 +1,19 @@
+import { normalizeFilePath } from '@codemod-utils/files';
+
 import type { CodemodOptions, Options } from '../../../src/types/index.js';
 
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
-  projectRoot: 'tmp/my-monorepo',
-  testAppLocation: 'tests/my-v2-addon',
+  projectRoot: normalizeFilePath('tmp/my-monorepo'),
+  testAppLocation: normalizeFilePath('tests/my-v2-addon'),
 };
 
 const options: Options = {
   componentStructure: 'flat',
   projectHasTemplateTag: true,
-  projectRoot: 'tmp/my-monorepo',
+  projectRoot: normalizeFilePath('tmp/my-monorepo'),
   testApp: {
-    location: 'tmp/my-monorepo/tests/my-v2-addon',
+    location: normalizeFilePath('tmp/my-monorepo/tests/my-v2-addon'),
     name: 'test-app',
   },
 };
