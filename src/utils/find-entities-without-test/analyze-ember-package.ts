@@ -54,7 +54,7 @@ export function analyzeEmberPackage({
       let entityName = relative(
         join(source, entityFolder),
         join(dir, name),
-      ).replace(sep, '/');
+      ).replaceAll(sep, '/');
 
       if (entityType === 'components') {
         if (componentStructure === 'nested') {
