@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [#25](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/25) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.1.6
 
 ### Patch Changes
