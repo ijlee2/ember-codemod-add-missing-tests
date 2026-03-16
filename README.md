@@ -22,7 +22,7 @@ Step 1. Quickly migrate.
 
 ```sh
 cd <path/to/your/project>
-npx ember-codemod-add-missing-tests <arguments>
+pnpx ember-codemod-add-missing-tests <arguments>
 ```
 
 Step 2. Review the package.
@@ -40,7 +40,7 @@ Step 2. Review the package.
 By default, an Octane project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
-npx ember-codemod-add-missing-tests --component-structure nested
+pnpx ember-codemod-add-missing-tests --component-structure nested
 ```
 
 </details>
@@ -52,7 +52,7 @@ npx ember-codemod-add-missing-tests --component-structure nested
 Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-add-missing-tests --root <path/to/your/project>
+pnpx ember-codemod-add-missing-tests --root <path/to/your/project>
 ```
 
 </details>
@@ -64,7 +64,7 @@ npx ember-codemod-add-missing-tests --root <path/to/your/project>
 By default, the codemod creates tests in the package where it is run. Pass `--test-app-location` to override the logic.
 
 ```sh
-npx ember-codemod-add-missing-tests --test-app-location ../../tests/my-v2-addon
+pnpx ember-codemod-add-missing-tests --test-app-location ../../tests/my-v2-addon
 ```
 
 </details>
