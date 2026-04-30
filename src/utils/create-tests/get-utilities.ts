@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { AST } from '@codemod-utils/ast-javascript';
 import { camelize, pascalize } from '@codemod-utils/ember';
 
@@ -24,15 +23,18 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
 
   traverse(file, {
     visitExportDefaultDeclaration(path) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const { declaration } = path.value;
 
       if (!declaration) {
         return false;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       switch (declaration.type) {
         case 'ClassDeclaration': {
           utilities.default.push(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             (declaration.id?.name as string | undefined) ??
               pascalize(data.entityName),
           );
@@ -41,6 +43,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
 
         case 'FunctionDeclaration': {
           utilities.default.push(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             (declaration.id?.name as string | undefined) ??
               camelize(data.entityName),
           );
@@ -48,6 +51,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         case 'Identifier': {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           utilities.default.push(declaration.name as string);
           break;
         }
@@ -64,6 +68,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         default: {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           console.error(`ERROR: Unknown type: ${declaration.type}`);
           console.log(file);
           console.log();
@@ -74,10 +79,13 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
     },
 
     visitExportNamedDeclaration(path) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const { declaration, specifiers } = path.value;
 
       // @ts-expect-error: Parameter 'specifier' implicitly has an 'any' type.
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       specifiers.forEach((specifier) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         utilities.named.push(specifier.exported.name as string);
       });
 
@@ -85,9 +93,11 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         return false;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       switch (declaration.type) {
         case 'ClassDeclaration': {
           utilities.named.push(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             (declaration.id?.name as string | undefined) ??
               pascalize(data.entityName),
           );
@@ -96,6 +106,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
 
         case 'FunctionDeclaration': {
           utilities.named.push(
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             (declaration.id?.name as string | undefined) ??
               camelize(data.entityName),
           );
@@ -110,22 +121,28 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
 
         case 'VariableDeclaration': {
           // @ts-expect-error: Binding element 'id' implicitly has an 'any' type.
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
           declaration.declarations.forEach(({ id }) => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             switch (id.type) {
               case 'Identifier': {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 utilities.named.push(id.name as string);
                 return;
               }
 
               case 'ObjectPattern': {
                 // @ts-expect-error: Parameter 'property' implicitly has an 'any' type.
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
                 id.properties.forEach((property) => {
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                   utilities.named.push(property.value as string);
                 });
                 return;
               }
 
               default: {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                 console.log(`ERROR: Unknown ID type: ${id.type}`);
                 console.log(file);
                 console.log();
@@ -137,6 +154,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         default: {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           console.error(`ERROR: Unknown type: ${declaration.type}`);
           console.log(file);
           console.log();
