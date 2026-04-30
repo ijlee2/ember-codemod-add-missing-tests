@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [#29](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/29) Fixed lint errors ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#30](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/30) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.2
 
 ### Patch Changes
