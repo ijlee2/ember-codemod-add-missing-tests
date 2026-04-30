@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access */
 import { AST } from '@codemod-utils/ast-javascript';
 import { camelize, pascalize } from '@codemod-utils/ember';
 
@@ -24,7 +23,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
 
   traverse(file, {
     visitExportDefaultDeclaration(path) {
-      const { declaration } = path.value;
+      const { declaration } = path.node;
 
       if (!declaration) {
         return false;
@@ -48,7 +47,7 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         case 'Identifier': {
-          utilities.default.push(declaration.name as string);
+          utilities.default.push(declaration.name);
           break;
         }
 
@@ -74,10 +73,9 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
     },
 
     visitExportNamedDeclaration(path) {
-      const { declaration, specifiers } = path.value;
+      const { declaration, specifiers } = path.node;
 
-      // @ts-expect-error: Parameter 'specifier' implicitly has an 'any' type.
-      specifiers.forEach((specifier) => {
+      specifiers!.forEach((specifier) => {
         utilities.named.push(specifier.exported.name as string);
       });
 
@@ -109,24 +107,27 @@ export function getUtilities(file: string, data: Data): Utilities | undefined {
         }
 
         case 'VariableDeclaration': {
-          // @ts-expect-error: Binding element 'id' implicitly has an 'any' type.
-          declaration.declarations.forEach(({ id }) => {
-            switch (id.type) {
+          declaration.declarations.forEach((declaration) => {
+            if (declaration.type !== 'VariableDeclarator') {
+              return;
+            }
+
+            switch (declaration.id.type) {
               case 'Identifier': {
-                utilities.named.push(id.name as string);
+                utilities.named.push(declaration.id.name);
                 return;
               }
 
               case 'ObjectPattern': {
-                // @ts-expect-error: Parameter 'property' implicitly has an 'any' type.
-                id.properties.forEach((property) => {
+                declaration.id.properties.forEach((property) => {
+                  // @ts-expect-error: Incorrect type
                   utilities.named.push(property.value as string);
                 });
                 return;
               }
 
               default: {
-                console.log(`ERROR: Unknown ID type: ${id.type}`);
+                console.log(`ERROR: Unknown ID type: ${declaration.id.type}`);
                 console.log(file);
                 console.log();
               }
