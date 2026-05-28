@@ -5,7 +5,6 @@ import type { EntityName } from '../../types/index.js';
 
 type Data = {
   entityName: EntityName;
-  isTypeScript: boolean;
 };
 
 type Utilities = {
@@ -14,14 +13,12 @@ type Utilities = {
 };
 
 export function getUtilities(file: string, data: Data): Utilities | undefined {
-  const traverse = AST.traverse(data.isTypeScript);
-
   const utilities: Utilities = {
     default: [],
     named: [],
   };
 
-  traverse(file, {
+  AST.traverse(file, {
     visitExportDefaultDeclaration(path) {
       const { declaration } = path.node;
 

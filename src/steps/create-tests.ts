@@ -40,10 +40,7 @@ export function createTests(allEntities: AllEntities, options: Options): void {
       if (entityType === 'utilities') {
         const file = readFileSync(join(projectRoot, filePath), 'utf8');
 
-        utilities = getUtilities(file, {
-          entityName,
-          isTypeScript,
-        });
+        utilities = getUtilities(file, { entityName });
 
         if (utilities === undefined) {
           continue;
