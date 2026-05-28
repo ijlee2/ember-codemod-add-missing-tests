@@ -13,14 +13,12 @@ type Utilities = {
 };
 
 export function getUtilities(file: string, data: Data): Utilities | undefined {
-  const traverse = AST.traverse(true);
-
   const utilities: Utilities = {
     default: [],
     named: [],
   };
 
-  traverse(file, {
+  AST.traverse(file, {
     visitExportDefaultDeclaration(path) {
       const { declaration } = path.node;
 
