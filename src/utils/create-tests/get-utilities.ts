@@ -12,7 +12,7 @@ type Utilities = {
   named: string[];
 };
 
-export function getUtilities(file: string, data: Data): Utilities | undefined {
+export function getUtilities(file: string, data: Data): undefined | Utilities {
   const utilities: Utilities = {
     default: [],
     named: [],
