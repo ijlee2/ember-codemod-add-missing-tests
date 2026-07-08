@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.2
+
+### Patch Changes
+
+- [#34](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/34) Updated dependencies (eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.2.1
 
 ### Patch Changes
