@@ -6,8 +6,6 @@ module('Unit | Serializer | <%= data.entity.name %>', function (hooks) {
 
   test('it exists', function (assert) {
     const store = this.owner.lookup('service:store');
-    // @ts-expect-error: Property 'serializerFor' does not exist on type 'Store'.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const serializer = store.serializerFor('<%= data.entity.name %>');
 
     assert.ok(serializer);
@@ -21,8 +19,6 @@ module('Unit | Serializer | <%= data.entity.name %>', function (hooks) {
 
   test('it exists', function (assert) {
     const store = this.owner.lookup('service:store');
-    // @ts-expect-error: Property 'serializerFor' does not exist on type 'Store'.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const serializer = store.serializerFor('<%= data.entity.name %>');
 
     assert.ok(serializer);
