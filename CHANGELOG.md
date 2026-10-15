@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- [#42](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/42) Removed ignore directives from blueprints ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#42](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/42) Updated dependencies (replaced eslint with oxlint) ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.2.5
 
 ### Patch Changes
