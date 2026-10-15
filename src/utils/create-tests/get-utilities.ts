@@ -74,7 +74,7 @@ export function getUtilities(file: string, data: Data): undefined | Utilities {
 
       specifiers!.forEach((specifier) => {
         // @ts-expect-error: Incorrect type
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        // oxlint-disable-next-line typescript/no-unsafe-member-access
         utilities.named.push(specifier.exported.name as string);
       });
 
