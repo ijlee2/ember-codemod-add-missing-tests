@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.3
+
+### Patch Changes
+
+- [#46](https://github.com/ijlee2/ember-codemod-add-missing-tests/pull/46) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.3.2
 
 ### Patch Changes
